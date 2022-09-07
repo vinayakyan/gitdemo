@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+  <title>Posts List</title>
+{% endblock %}
+{% block content %}
+  <p><strong>This is List Page</strong></p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Content</th>
+        <th scope="col">Created Time</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for obj in object_list %}
+      <tr>
+        <th scope="row"><a href="{{ obj.get_absolute_url }}">{{obj.id}}</a></th>
+        <td>{{obj.title}}</td>
+        <td>{{obj.content}}</td>
+        <td>{{obj.created_time}}</td>
+        <td><a href="{% url 'update' obj.id %}"><i class="bi bi-pencil-square"></i></a></td>
+        <td><a href="{% url 'delete' obj.id %}" style="text-decoration: none;"><i class="bi bi-trash"></i></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
