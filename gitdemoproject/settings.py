@@ -124,7 +124,17 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'testorganization7@gmail.com'
+EMAIL_HOST_PASSWORD = 'idbyvnfrnyvybuet'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+LOGIN_REDIRECT_URL = '/posts/'
+
+LOGOUT_REDIRECT_URL = LOGIN_URL
 
 CACHES = {
     'default': {
